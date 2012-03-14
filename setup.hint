@@ -1,0 +1,5 @@
+category: Math
+requires: gnuplot octave R texlive texlive-collection-basic texlive-collection-latex x12arima xterm libcairo2 libfftw3_3 libgdk_pixbuf2.0_0 libglib2.0_0 libgmp3 libgtk2.0_0 libgtksourceview2.0_0 libintl8 libiodbc2 liblapack0 libmpfr4 libpango1.0_0 libreadline7 libxml2 zlib0
+sdesc: "Econometric analysis program"
+ldesc: "gretl is a cross-platform software package for econometric 
+analysis, written in the C programming language."

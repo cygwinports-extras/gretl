@@ -1,0 +1,28 @@
+--- origsrc/gretl-1.9.7/configure.in	2011-09-13 09:40:01.000000000 -0500
++++ src/gretl-1.9.7/configure.in	2012-03-14 02:13:32.003801200 -0500
+@@ -60,6 +60,7 @@ have_odbc="no"
+ try_libR="yes"
+ have_libR="no"
+ check_gnuplot="yes"
++cygwin_build="no"
+ darwin_build="no"
+ quiet_build="no"
+ swap_ends="no"
+@@ -408,6 +409,7 @@ case $host_os in
+     if test "$have_lapack" = "yes" ; then
+       LAPACK_LIBS="${LAPACK_LIBS} -XCClinker,-lgfortran"
+     fi
++    cygwin_build="yes"
+   ;;  
+   *)
+     AM_PATH_LAPACK(, have_lapack="yes") 
+@@ -664,6 +666,9 @@ if test "$try_libR" = "yes" ; then
+       fi 
+       if test "$darwin_build" = "yes" ; then
+         RLIBNAME="libR.dylib"
++      elif test "$cygwin_build" = "yes" ; then
++        RLIBDIR="/usr/bin"
++        RLIBNAME="libR.dll"
+       else 
+         RLIBNAME="libR.so"
+       fi

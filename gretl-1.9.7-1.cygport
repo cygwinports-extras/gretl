@@ -1,0 +1,24 @@
+DESCRIPTION="Econometric analysis program"
+HOMEPAGE="http://gretl.sourceforge.net/"
+SRC_URI="mirror://sourceforge/gretl/${P}.tar.bz2"
+
+PATCH_URI="1.9.7-autoconf.patch
+	   1.9.7-cygwin.patch
+	   1.9.7-no-undefined.patch"
+
+ACLOCAL_FLAGS="-I macros"
+NO_AUTOHEADER=1
+CYGCONF_ARGS="
+	--disable-static
+	--with-libR
+	--with-mpfr
+	--with-odbc
+	--with-readline
+"
+
+src_install() {
+	cd ${B}
+	cyginstall -j1
+}
+
+KEEP_LA_FILES="none"
