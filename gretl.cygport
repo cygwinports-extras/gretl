@@ -1,0 +1,32 @@
+NAME="gretl"
+VERSION=1.9.13
+RELEASE=1
+CATEGORY="Math"
+SUMMARY="Econometric analysis program"
+DESCRIPTION="gretl is a cross-platform software package for econometric
+analysis, written in the C programming language."
+REQUIRES="gnuplot octave R texlive texlive-collection-basic texlive-collection-latex x12arima xterm"
+HOMEPAGE="http://gretl.sourceforge.net/"
+SRC_URI="mirror://sourceforge/gretl/gretl-${VERSION}.tar.bz2"
+PATCH_URI="
+	1.9.7-autoconf.patch
+	1.9.7-cygwin.patch
+	1.9.7-no-undefined.patch
+	1.9.13-Winherit-decls.patch
+"
+
+ACLOCAL_FLAGS="-I macros"
+NO_AUTOHEADER=1
+CYGCONF_ARGS="
+	--with-libR
+	--with-mpfr
+	--with-odbc
+	--with-readline
+"
+
+src_install() {
+	cd ${B}
+	cyginstall -j1
+}
+
+KEEP_LA_FILES="none"

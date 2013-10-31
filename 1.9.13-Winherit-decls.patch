@@ -1,0 +1,10 @@
+--- origsrc/gretl-1.9.13/macros/lapack.m4	2013-09-06 08:55:23.000000000 -0500
++++ src/gretl-1.9.13/macros/lapack.m4	2013-10-31 03:20:38.501234200 -0500
+@@ -46,6 +46,7 @@ dnl
+   AC_TRY_RUN([
+ #include <stdlib.h>
+ #include "gretl_f2c.h"
++extern integer ieeeck_(integer *, real *, real *);
+ 
+ int 
+ main ()
